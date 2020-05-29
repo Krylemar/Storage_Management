@@ -23,5 +23,19 @@ namespace Data
         public int storage_id { get; set; }
     
         public virtual storage storage { get; set; }
+
+        public staff()
+        {
+
+        }
+        public staff(string first_name, string last_name, string email, string username, string password, int storage_id):this()
+        {
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.email = email;
+            this.username = username;
+            this.password = password;
+            this.storage_id = storage_id;
+        }
     }
 }

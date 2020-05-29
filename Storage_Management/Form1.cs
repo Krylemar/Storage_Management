@@ -16,6 +16,7 @@ namespace Storage_Management
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace Storage_Management
             {
                 label1.Text = "Succeeded";
             }
-            label1.Text = "Failed";
+            else label1.Text = "Failed";
         }
     }
 }

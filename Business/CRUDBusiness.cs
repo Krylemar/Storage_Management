@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
-using Data.Models;
 
 namespace Business
 {
@@ -28,13 +27,13 @@ namespace Business
         //Ако върне тру значи служителя е премахнат успешно
         public bool DeleteEmployee(string username) 
         {
-            using (var staffContext = new Storage_ManagementContext())
+            using (var staffContext = new storage_managementEntities())
             {
-                foreach (var employee in staffContext.Staff)
+                foreach (var employee in staffContext.staffs)
                 {
-                    if (employee.Username.Equals(username))
+                    if (employee.username.Equals(username))
                     {
-                        staffContext.Staff.Remove(employee);
+                        staffContext.staffs.Remove(employee);
                         return true;
                     }
                     
@@ -45,13 +44,13 @@ namespace Business
         //Ако върне тру значи служителя е премахнат успешно
         public bool DeleteEmployee(int id)
         {
-            using (var staffContext = new Storage_ManagementContext())
+            using (var staffContext = new storage_managementEntities())
             {
-                foreach (var employee in staffContext.Staff)
+                foreach (var employee in staffContext.staffs)
                 {
-                    if (employee.Id.Equals(id))
+                    if (employee.id_staff.Equals(id))
                     {
-                        staffContext.Staff.Remove(employee);
+                        staffContext.staffs.Remove(employee);
                         return true;
                     }
 
@@ -63,29 +62,29 @@ namespace Business
         //Ако върне тру значи е създадено ново депо, ако върне фалс значи такова депо съществува
         public bool CreateNewStorage(string name) 
         {
-            using (var depotContext = new Storage_ManagementContext()) 
+            using (var depotContext = new storage_managementEntities()) 
             {
-                foreach (var depot in depotContext.Depots)
+                foreach (var depot in depotContext.storages)
                 {
-                    if (depot.Name.Equals(name))
+                    if (depot.name.Equals(name))
                     {
                         return false;
                     }
                 }
-                depotContext.Depots.Add(new Depot(name));
+                depotContext.storages.Add(new storage(name));
                 return true;
             }
         }
 
         public bool DeleteDepot(int id) 
         {
-            using (var depotContext = new Storage_ManagementContext())
+            using (var depotContext = new storage_managementEntities())
             {
-                foreach (var depot in depotContext.Depots)
+                foreach (var depot in depotContext.storages)
                 {
-                    if (depot.Id.Equals(id))
+                    if (depot.id_storage.Equals(id))
                     {
-                        depotContext.Depots.Remove(depot);
+                        depotContext.storages.Remove(depot);
                         return true;
                     }
                 }                
@@ -95,13 +94,13 @@ namespace Business
 
         public bool DeleteDepot(string Name) 
         {
-            using (var depotContext = new Storage_ManagementContext())
+            using (var depotContext = new storage_managementEntities())
             {
-                foreach (var depot in depotContext.Depots)
+                foreach (var depot in depotContext.storages)
                 {
-                    if (depot.Name.Equals(Name))
+                    if (depot.name.Equals(Name))
                     {
-                        depotContext.Depots.Remove(depot);
+                        depotContext.storages.Remove(depot);
                         return true;
                     }
                 }
@@ -110,13 +109,13 @@ namespace Business
         }
 
         //За гетовете ако искаш да върне bool махаш коментарите от тялото и сменяш Depot със bool
-        public Depot GetDepot(int id) 
+        public storage GetDepot(int id) 
         {
-            using (var depotContext = new Storage_ManagementContext())
+            using (var depotContext = new storage_managementEntities())
             {
-                foreach (var depot in depotContext.Depots)
+                foreach (var depot in depotContext.storages)
                 {
-                    if (depot.Id.Equals(id))
+                    if (depot.id_storage.Equals(id))
                     {
                         return depot;
                         //return true;
@@ -127,13 +126,13 @@ namespace Business
             }
         }
 
-        public Depot GetDepot(string Name) 
+        public storage GetDepot(string Name) 
         {
-            using (var depotContext = new Storage_ManagementContext())
+            using (var depotContext = new storage_managementEntities())
             {
-                foreach (var depot in depotContext.Depots)
+                foreach (var depot in depotContext.storages)
                 {
-                    if (depot.Name.Equals(Name))
+                    if (depot.name.Equals(Name))
                     {                       
                         return depot;
                         //return true;

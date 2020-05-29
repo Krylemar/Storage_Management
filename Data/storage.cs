@@ -20,6 +20,11 @@ namespace Data
             this.items = new HashSet<item>();
             this.staffs = new HashSet<staff>();
         }
+
+        public storage(string storage_name):this()
+        {
+            this.name = storage_name;
+        }
     
         public int id_storage { get; set; }
         public string name { get; set; }

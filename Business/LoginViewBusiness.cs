@@ -15,20 +15,20 @@ namespace Business
         //Add desc...
         public bool Login(string username, string password)
         {
-            using (var staffContext = new Storage_ManagerContext())
-            {foreach(var employee in staffContext.Staff)
-               {
-                 if(employee.Username.Equals(username))
+            using (var staffContext = new storage_managementEntities())
+            {
+                foreach(var employee in staffContext.staffs)
+                {
+                 if(employee.username.Equals(username))
                  {
-                   if(employee.Password.Equals(password))
+                   if(employee.password.Equals(password))
                    {
                      return true;
-                   }
-                   else return false;
+                   }                 
                  }
-                  else return false;
-               } 
-            }
+                }
+                staffContext.SaveChanges();
+            }            
             return false;
         }
 
@@ -37,16 +37,16 @@ namespace Business
         //Add desc...
         public bool Register(string first_name, string last_name, string email, string username, string password, int storage_id)
         {
-            using (var staffContext = new Storage_ManagementContext())
+            using (var staffContext = new storage_managementEntities())
             {
-                Employee emp = new Employee(first_name,last_name,email,username,password,storage_id);
-                foreach(var employee in staffContext.Staff)
+                staff emp = new staff(first_name,last_name,email,username,password,storage_id);
+                foreach(var employee in staffContext.staffs)
                 {
-                    if (employee.Email.Equals(email))
+                    if (employee.email.Equals(email))
                     {
                         return false;
                     }
-                    else if (employee.Username.Equals(username))
+                    else if (employee.username.Equals(username))
                     {
                         return false;
                     }
