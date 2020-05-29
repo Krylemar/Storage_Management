@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using 
+using Business;
 
 namespace Storage_Management
 {
@@ -20,7 +20,12 @@ namespace Storage_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            var login = new LoginViewBusiness();
+            if (login.Login(textBox1.Text, textBox2.Text)== true)
+            {
+                label1.Text = "Succeeded";
+            }
+            label1.Text = "Failed";
         }
     }
 }
