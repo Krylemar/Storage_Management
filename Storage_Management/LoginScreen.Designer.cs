@@ -145,8 +145,9 @@
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordField);
             this.Controls.Add(this.UsernameField);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginScreen";
-            this.Text = "LoginScreen";
+            this.Text = "Storage Master";
             this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -246,8 +246,9 @@
             this.Controls.Add(this.usernameField);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.AppNameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterScreen";
-            this.Text = "RegisterScreen";
+            this.Text = "Storage Master";
             this.ResumeLayout(false);
             this.PerformLayout();
 
