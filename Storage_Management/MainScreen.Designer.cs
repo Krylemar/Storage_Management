@@ -46,7 +46,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.saveChangesButton = new System.Windows.Forms.Button();
-            this.closeButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -204,26 +204,30 @@
             this.saveChangesButton.Text = "Запази промените";
             this.saveChangesButton.UseVisualStyleBackColor = true;
             // 
-            // closeButton
+            // exitButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(22, 788);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(257, 76);
-            this.closeButton.TabIndex = 10;
-            this.closeButton.Text = "Изход";
-            this.closeButton.UseVisualStyleBackColor = true;
+            this.exitButton.Location = new System.Drawing.Point(22, 788);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(257, 76);
+            this.exitButton.TabIndex = 10;
+            this.exitButton.Text = "Изход";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // logOutButton
             // 
+            this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.logOutButton.Location = new System.Drawing.Point(1266, 35);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(155, 56);
             this.logOutButton.TabIndex = 11;
             this.logOutButton.Text = "Излез";
             this.logOutButton.UseVisualStyleBackColor = true;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -236,6 +240,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -277,7 +282,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.logOutButton);
-            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.saveChangesButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
@@ -307,7 +312,7 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button saveChangesButton;
-        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -24,9 +24,27 @@ namespace Storage_Management
 
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Exit();
+        }
+
         private void refreshButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            var newForm = new LoginScreen();
+            this.Hide();
+            newForm.Show();
         }
     }
 }

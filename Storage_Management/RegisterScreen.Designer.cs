@@ -42,6 +42,7 @@
             this.emailField = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
+            this.errorMsgLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AppNameLabel
@@ -151,6 +152,7 @@
             this.passwordField.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.passwordField.Location = new System.Drawing.Point(315, 310);
             this.passwordField.Name = "passwordField";
+            this.passwordField.PasswordChar = '*';
             this.passwordField.Size = new System.Drawing.Size(479, 44);
             this.passwordField.TabIndex = 12;
             // 
@@ -189,12 +191,12 @@
             // 
             // LoginButton
             // 
-            this.LoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LoginButton.BackColor = System.Drawing.Color.LimeGreen;
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(17, 727);
+            this.LoginButton.Location = new System.Drawing.Point(46, 727);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(196, 52);
+            this.LoginButton.Size = new System.Drawing.Size(224, 52);
             this.LoginButton.TabIndex = 16;
             this.LoginButton.Text = "Обратно към влизане";
             this.LoginButton.UseVisualStyleBackColor = false;
@@ -202,15 +204,27 @@
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegisterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.RegisterButton.BackColor = System.Drawing.Color.DarkGreen;
-            this.RegisterButton.Location = new System.Drawing.Point(627, 727);
+            this.RegisterButton.Location = new System.Drawing.Point(595, 727);
             this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(196, 52);
+            this.RegisterButton.Size = new System.Drawing.Size(228, 52);
             this.RegisterButton.TabIndex = 17;
             this.RegisterButton.Text = "Регистрирай се";
             this.RegisterButton.UseVisualStyleBackColor = false;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
+            // 
+            // errorMsgLabel
+            // 
+            this.errorMsgLabel.AutoSize = true;
+            this.errorMsgLabel.BackColor = System.Drawing.Color.Transparent;
+            this.errorMsgLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.errorMsgLabel.Location = new System.Drawing.Point(605, 704);
+            this.errorMsgLabel.Name = "errorMsgLabel";
+            this.errorMsgLabel.Size = new System.Drawing.Size(42, 20);
+            this.errorMsgLabel.TabIndex = 19;
+            this.errorMsgLabel.Text = "error";
+            this.errorMsgLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RegisterScreen
             // 
@@ -218,6 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(862, 805);
+            this.Controls.Add(this.errorMsgLabel);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.emailField);
@@ -253,5 +268,6 @@
         private System.Windows.Forms.TextBox emailField;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Button RegisterButton;
+        private System.Windows.Forms.Label errorMsgLabel;
     }
 }

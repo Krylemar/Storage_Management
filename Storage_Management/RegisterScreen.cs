@@ -18,10 +18,16 @@ namespace Storage_Management
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
-            this.Hide();
+            base.OnClosed(e);
+            Application.Exit();
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        { 
             var newForm = new LoginScreen();
+            this.Hide();
             newForm.Show();
         }
 
@@ -29,10 +35,15 @@ namespace Storage_Management
         {
             var register = new LoginViewBusiness();
             register.Register(firstNameField.Text, lastNameField.Text, emailField.Text, usernameField.Text, passwordField.Text, 1);
-            this.Hide();
             var newForm = new LoginScreen();
             MessageBox.Show("Регистрацията ви е успешна");
+            this.Hide();
             newForm.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
