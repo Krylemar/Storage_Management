@@ -68,6 +68,7 @@
             this.PasswordField.TabIndex = 1;
             this.PasswordField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PasswordField.TextChanged += new System.EventHandler(this.PasswordField_TextChanged);
+            this.PasswordField.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordField_KeyDown);
             // 
             // LoginButton
             // 

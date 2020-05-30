@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using Business;
+using Microsoft.VisualBasic.Logging;
+using Renci.SshNet.Security;
 
 namespace Storage_Management
 {
@@ -52,7 +54,10 @@ namespace Storage_Management
                 var login = new LoginViewBusiness();
                 if (login.Login(UsernameField.Text, PasswordField.Text) == true)
                 {
-                    var newForm = new MainScreen();
+                    var employeeName = new EmployeeBusiness();
+                    string firstName = employeeName.GetEmployeeFirstName(UsernameField.Text);
+                    string lastName = employeeName.GetEmployeeLastName(UsernameField.Text);
+                    var newForm = new MainScreen(firstName, lastName);
                     this.Hide();
                     newForm.Show(); ;
                 }
@@ -83,6 +88,12 @@ namespace Storage_Management
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void PasswordField_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                LoginButton.PerformClick();
         }
     }
 }

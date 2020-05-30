@@ -7,7 +7,7 @@ using Data;
 
 namespace Business
 {
-    class EmployeeBusiness
+    public class EmployeeBusiness
     {
         // Връща човек по зададено ид 
         public staff GetEmployee(int id)
@@ -36,6 +36,38 @@ namespace Business
                     if (employee.username.Equals(username))
                     {
                         return employee;
+                    }
+                }
+                staffContext.SaveChanges();
+                return null;
+            }
+        }
+        //Връща името на служителя
+        public string GetEmployeeFirstName(string username)
+        {
+            using (var staffContext = new storage_managementEntities())
+            {
+                foreach (var employee in staffContext.staffs)
+                {
+                    if (employee.username.Equals(username))
+                    {
+                        return employee.first_name;
+                    }
+                }
+                staffContext.SaveChanges();
+                return null;
+            }
+        }
+        //Връща фамилията на служителя
+        public string GetEmployeeLastName(string username)
+        {
+            using (var staffContext = new storage_managementEntities())
+            {
+                foreach (var employee in staffContext.staffs)
+                {
+                    if (employee.username.Equals(username))
+                    {
+                        return employee.last_name;
                     }
                 }
                 staffContext.SaveChanges();

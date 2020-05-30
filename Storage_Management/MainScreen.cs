@@ -12,9 +12,10 @@ namespace Storage_Management
 {
     public partial class MainScreen : Form
     {
-        public MainScreen()
+        public MainScreen(string first_name, string last_name)
         {
             InitializeComponent();
+            nameLabel.Text = first_name+" "+last_name;
         }
 
         private void MainScreen_Load(object sender, EventArgs e)
@@ -98,6 +99,11 @@ namespace Storage_Management
 
             //In case if you want to scroll down as well.
             itemsGridView.FirstDisplayedScrollingRowIndex = nRowIndex;
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

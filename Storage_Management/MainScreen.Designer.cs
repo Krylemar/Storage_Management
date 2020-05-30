@@ -49,7 +49,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
             this.cancelChangesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGridView)).BeginInit();
@@ -222,7 +222,7 @@
             // logOutButton
             // 
             this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.logOutButton.Location = new System.Drawing.Point(1266, 35);
+            this.logOutButton.Location = new System.Drawing.Point(1281, 35);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(155, 56);
             this.logOutButton.TabIndex = 11;
@@ -237,24 +237,24 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(1065, 18);
+            this.label2.Location = new System.Drawing.Point(1025, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 32);
             this.label2.TabIndex = 12;
             this.label2.Text = "Добре дошъл";
             // 
-            // label3
+            // nameLabel
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(1136, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 32);
-            this.label3.TabIndex = 13;
-            this.label3.Text = ".....";
+            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.nameLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nameLabel.Location = new System.Drawing.Point(1025, 43);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(0, 32);
+            this.nameLabel.TabIndex = 13;
+            this.nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
             // 
             // refreshButton
             // 
@@ -285,7 +285,7 @@
             this.ClientSize = new System.Drawing.Size(1457, 889);
             this.Controls.Add(this.cancelChangesButton);
             this.Controls.Add(this.refreshButton);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.exitButton);
@@ -321,7 +321,7 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button cancelChangesButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn iditemDataGridViewTextBoxColumn;

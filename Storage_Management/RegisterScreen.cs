@@ -25,7 +25,7 @@ namespace Storage_Management
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
-        { 
+        {
             var newForm = new LoginScreen();
             this.Hide();
             newForm.Show();
@@ -33,17 +33,28 @@ namespace Storage_Management
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            var register = new LoginViewBusiness();
-            register.Register(firstNameField.Text, lastNameField.Text, emailField.Text, usernameField.Text, passwordField.Text, 1);
-            var newForm = new LoginScreen();
-            MessageBox.Show("Регистрацията ви е успешна");
-            this.Hide();
-            newForm.Show();
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            try
+            {
+                var register = new LoginViewBusiness();
+                if (register.Register(firstNameField.Text, lastNameField.Text, emailField.Text, usernameField.Text, passwordField.Text, 1) == true)
+                {
+                    var newForm = new LoginScreen();
+                    this.Hide();
+                    MessageBox.Show("Регистрацията ви е успешна");
+                    newForm.Show(); ;
+                }
+                else
+                {
+                    errorMsgLabel.Text = "Такъв потребител вече съществува";
+                    errorMsgLabel.ForeColor = Color.Red;
+                };
+            }
+            catch (ArgumentNullException)
+            {
+                errorMsgLabel.Text = "Не може да оставяте полета празни";
+                errorMsgLabel.ForeColor = Color.Red; ;
+            }
         }
     }
 }

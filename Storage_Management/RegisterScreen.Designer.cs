@@ -47,7 +47,7 @@
             // 
             // AppNameLabel
             // 
-            this.AppNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.AppNameLabel.AutoSize = true;
             this.AppNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.AppNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -216,14 +216,14 @@
             // 
             // errorMsgLabel
             // 
+            this.errorMsgLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.errorMsgLabel.AutoSize = true;
             this.errorMsgLabel.BackColor = System.Drawing.Color.Transparent;
             this.errorMsgLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.errorMsgLabel.Location = new System.Drawing.Point(605, 704);
+            this.errorMsgLabel.Location = new System.Drawing.Point(274, 743);
             this.errorMsgLabel.Name = "errorMsgLabel";
-            this.errorMsgLabel.Size = new System.Drawing.Size(42, 20);
+            this.errorMsgLabel.Size = new System.Drawing.Size(0, 20);
             this.errorMsgLabel.TabIndex = 19;
-            this.errorMsgLabel.Text = "error";
             this.errorMsgLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RegisterScreen
