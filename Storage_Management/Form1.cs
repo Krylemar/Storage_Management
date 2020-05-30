@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Microsoft.SqlServer.Server;
 
 namespace Storage_Management
 {
@@ -21,12 +22,33 @@ namespace Storage_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var login = new LoginViewBusiness();
-            if (login.Login(textBox1.Text, textBox2.Text)== true)
+            var reg = new LoginViewBusiness();
+            try
             {
-                label1.Text = "Succeeded";
+                if (reg.Register(RegFirstName.Text, RegLastName.Text, RegEmail.Text, RegUsername.Text, RegPass.Text, int.Parse(RegStorageId.Text)))
+                {
+                    label1.Text = "Succeeded";
+                }
+                else label1.Text = "Failed";
             }
-            else label1.Text = "Failed";
+            catch (FormatException) 
+            {
+                label1.Text = "Fields Cannot be Empty!";
+            }
+
+            //try
+            //{
+            //    var login = new LoginViewBusiness();
+            //    if (login.Login(RegUsername.Text, RegPass.Text))
+            //    {
+            //        label1.Text = "Succeeded";
+            //    }
+            //    else label1.Text = "Failed";
+            //}
+            //catch (ArgumentNullException)
+            //{
+            //    label1.Text = "Login or Password fields are empty";
+            //}
         }
     }
 }

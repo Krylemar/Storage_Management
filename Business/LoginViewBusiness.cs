@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations.Model;
 using System.Linq;
@@ -12,54 +13,63 @@ namespace Business
     {
         
 
-        //
+        //Catch ArgumentNullException а случай, където може да има празно поле
         public bool Login(string username, string password)
         {
-            using (var staffContext = new storage_managementEntities())
+            if (username.Equals("") || password.Equals(""))
+            {throw new ArgumentNullException();}
+            else
             {
-                foreach(var employee in staffContext.staffs)
+                using (var staffContext = new storage_managementEntities())
                 {
-                 if(employee.username.Equals(username))
-                 {
-                   if(employee.password.Equals(password))
-                   {
-                     return true;
-                   }                 
-                 }
+                    foreach (var employee in staffContext.staffs)
+                    {
+                        if (employee.username.Equals(username))
+                        {
+                            if (employee.password.Equals(password))
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    staffContext.SaveChanges();
                 }
-                staffContext.SaveChanges();
-            }            
-            return false;
+                return false;
+            }
         }
 
         
 
-        //Add desc...
+        //Catch ArgumentNullException and FormatException за случай където може да има празни полета
         public bool Register(string first_name, string last_name, string email, string username, string password, int storage_id)
         {
-            using (var staffContext = new storage_managementEntities())
+            if (first_name.Equals("") || last_name.Equals("") || email.Equals("") || username.Equals("") || password.Equals("") || storage_id.Equals(0))
             {
-                staff emp = new staff(first_name,last_name,email,username,password,storage_id);
-                foreach(var employee in staffContext.staffs)
-                {
-                    if (employee.email.Equals(email))
-                    {
-                        return false;
-                    }
-                    else if (employee.username.Equals(username))
-                    {
-                        return false;
-                    }                                        
-                }
-                staffContext.staffs.Add(emp);
-                staffContext.SaveChanges();
-                return true;
+                throw new ArgumentNullException();
             }
-
+            else
+            {
+                using (var staffContext = new storage_managementEntities())
+                {
+                    staff emp = new staff(staffContext.staffs.Count(),first_name, last_name, email, username, password, storage_id);
+                    foreach (var employee in staffContext.staffs)
+                    {
+                        if (employee.email.Equals(email))
+                        {
+                            return false;
+                        }
+                        else if (employee.username.Equals(username))
+                        {
+                            return false;
+                        }
+                    }
+                    
+                    staffContext.staffs.Add(emp);
+                    staffContext.SaveChanges();
+                    return true;
+                }
+            }
         }
-        //To be implemented
-        public void Greeting() { }
         
-
     }
 }

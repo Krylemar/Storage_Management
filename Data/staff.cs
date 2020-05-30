@@ -28,8 +28,9 @@ namespace Data
         {
 
         }
-        public staff(string first_name, string last_name, string email, string username, string password, int storage_id):this()
+        public staff(int id,string first_name, string last_name, string email, string username, string password, int storage_id):this()
         {
+            this.id_staff = id;
             this.first_name = first_name;
             this.last_name = last_name;
             this.email = email;

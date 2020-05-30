@@ -9,6 +9,7 @@ namespace Business
 {
     class EmployeeBusiness
     {
+        // Връща човек по зададено ид 
         public staff GetEmployee(int id)
         {
             using (var staffContext = new storage_managementEntities())
@@ -25,7 +26,24 @@ namespace Business
             }
         }
 
-        //Ако върне тру значи служителя е премахнат успешно
+        //Стандартно четене и връщане от база данни
+        public staff GetEmployee(string username) 
+        {
+            using (var staffContext = new storage_managementEntities())
+            {
+                foreach (var employee in staffContext.staffs)
+                {
+                    if (employee.username.Equals(username))
+                    {
+                        return employee;
+                    }
+                }
+                staffContext.SaveChanges();
+                return null;
+            }
+        }
+
+        //Ако върне тру значи служителя е премахнат успешно, за извикване от изглед
         public bool DeleteEmployee(string param)
         {
             using (var staffContext = new storage_managementEntities())
@@ -51,7 +69,7 @@ namespace Business
                 }
             }
         }
-        //Вътрешни методи
+        //Вътрешни методи за извършване на триене на служител
         private bool DeleteEmployeeByName(string username)
         {
             using (var staffContext = new storage_managementEntities())
