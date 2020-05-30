@@ -12,7 +12,7 @@ namespace Business
     {
         
 
-        //Add desc...
+        //
         public bool Login(string username, string password)
         {
             using (var staffContext = new storage_managementEntities())
@@ -49,21 +49,17 @@ namespace Business
                     else if (employee.username.Equals(username))
                     {
                         return false;
-                    }
-                    else 
-                    { 
-                        return true; 
-                    }
-                    
+                    }                                        
                 }
-
-                return false;
+                staffContext.staffs.Add(emp);
+                staffContext.SaveChanges();
+                return true;
             }
 
         }
+        //To be implemented
         public void Greeting() { }
-        public void EmailIncorrectHandler() { }
-        public void UsernameIncorrectHandler() { }
+        
 
     }
 }

@@ -9,6 +9,7 @@
 
 namespace Data
 {
+    using Org.BouncyCastle.Crypto.Tls;
     using System;
     using System.Collections.Generic;
     
@@ -24,5 +25,20 @@ namespace Data
         public int storage_id { get; set; }
     
         public virtual storage storage { get; set; }
+
+        public item()
+        {
+
+        }
+
+        public item(string name,string brand,double price,int quantity,bool isAvailable,int storageId):this()
+        {
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+            this.quantity = quantity;
+            this.available = isAvailable;
+            this.storage_id = storageId;
+        }
     }
 }

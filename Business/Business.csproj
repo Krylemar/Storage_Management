@@ -105,8 +105,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRUDBusiness.cs" />
+    <Compile Include="DepotBusiness.cs" />
+    <Compile Include="EmployeeBusiness.cs" />
     <Compile Include="LoginViewBusiness.cs" />
+    <Compile Include="ProductBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
