@@ -82,6 +82,8 @@
             this.itemsGridView.RowTemplate.Height = 28;
             this.itemsGridView.Size = new System.Drawing.Size(1131, 669);
             this.itemsGridView.TabIndex = 0;
+            this.itemsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemsGridView_CellContentClick);
+            this.itemsGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.itemsGridView_KeyDown);
             // 
             // iditemDataGridViewTextBoxColumn
             // 
@@ -185,6 +187,7 @@
             this.addButton.TabIndex = 7;
             this.addButton.Text = "Добави";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // removeButton
             // 
@@ -194,6 +197,7 @@
             this.removeButton.TabIndex = 8;
             this.removeButton.Text = "Премахни";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // saveChangesButton
             // 
@@ -203,6 +207,7 @@
             this.saveChangesButton.TabIndex = 9;
             this.saveChangesButton.Text = "Запази промените";
             this.saveChangesButton.UseVisualStyleBackColor = true;
+            this.saveChangesButton.Click += new System.EventHandler(this.saveChangesButton_Click);
             // 
             // exitButton
             // 
@@ -269,6 +274,7 @@
             this.cancelChangesButton.TabIndex = 15;
             this.cancelChangesButton.Text = "Откажи промените";
             this.cancelChangesButton.UseVisualStyleBackColor = true;
+            this.cancelChangesButton.Click += new System.EventHandler(this.cancelChangesButton_Click);
             // 
             // MainScreen
             // 

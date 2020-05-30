@@ -35,6 +35,10 @@ namespace Storage_Management
         {
         }
 
+        private void PasswordField_KeyEnter(object sender, EventArgs e)
+        {
+        }
+
         private void LoginScreen_Load(object sender, EventArgs e)
         {
 

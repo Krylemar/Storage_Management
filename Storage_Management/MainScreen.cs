@@ -32,7 +32,8 @@ namespace Storage_Management
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            this.itemsTableAdapter.Fill(this.storage_managementDataSet.items);
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -45,6 +46,58 @@ namespace Storage_Management
             var newForm = new LoginScreen();
             this.Hide();
             newForm.Show();
+        }
+
+        private void saveChangesButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            try
+            {
+                itemsBindingSource.EndEdit();
+                itemsTableAdapter.Update(this.storage_managementDataSet.items);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Грешка !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            itemsBindingSource.RemoveCurrent(); 
+        }
+
+        private void cancelChangesButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            this.itemsTableAdapter.Fill(this.storage_managementDataSet.items);
+        }
+
+        private void itemsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void itemsGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            if (e.KeyCode == Keys.Delete)
+                itemsBindingSource.RemoveCurrent();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            itemsGridView.ClearSelection();//If you want
+
+            int nRowIndex = itemsGridView.Rows.Count - 1;
+            int nColumnIndex = 3;
+
+            itemsGridView.Rows[nRowIndex].Selected = true;
+            itemsGridView.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+            //In case if you want to scroll down as well.
+            itemsGridView.FirstDisplayedScrollingRowIndex = nRowIndex;
         }
     }
 }
