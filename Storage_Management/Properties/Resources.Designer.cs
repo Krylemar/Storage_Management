@@ -59,5 +59,15 @@ namespace Storage_Management.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_1409125 {
+            get {
+                object obj = ResourceManager.GetObject("background-1409125", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

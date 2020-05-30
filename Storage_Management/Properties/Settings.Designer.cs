@@ -22,5 +22,16 @@ namespace Storage_Management.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=Lavadrake;password=monster;persistsecurityinfo=True;data" +
+            "base=storage_management")]
+        public string storage_managementConnectionString {
+            get {
+                return ((string)(this["storage_managementConnectionString"]));
+            }
+        }
     }
 }
