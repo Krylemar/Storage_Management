@@ -92,8 +92,6 @@ namespace Storage_Management
 
         private void PasswordField_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                LoginButton.PerformClick();
         }
     }
 }
